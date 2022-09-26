@@ -1,6 +1,6 @@
 package com.stamp.platform.bean.pkcs7;
 
-import com.stamp.platform.bean.bc.SwSignerInformation;
+import com.stamp.platform.bean.bc.ELS_SignerInformation;
 import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.ASN1OctetString;
@@ -81,18 +81,18 @@ public class SWContentInfo {
         return contentInfo;
     }
 
-    public List<SwSignerInformation> getSignerInfos() {
+    public List<ELS_SignerInformation> getSignerInfos() {
         ASN1Set s = signedData.getSignerInfos();
-        List<SwSignerInformation> signerInfos = new ArrayList();
+        List<ELS_SignerInformation> signerInfos = new ArrayList();
         for (int i = 0; i != s.size(); i++) {
             SignerInfoExt info = SignerInfoExt.getInstance(s.getObjectAt(i));
             ASN1ObjectIdentifier contentType = signedData.getContentInfo().getContentType();
             if (hashes == null) {
-                signerInfos.add(new SwSignerInformation(info, contentType, signedContent, null));
+                signerInfos.add(new ELS_SignerInformation(info, contentType, signedContent, null));
             } else {
                 Object obj = hashes.keySet().iterator().next();
                 byte[] hash = (obj instanceof String) ? (byte[]) hashes.get(info.getDigestAlgorithm().getAlgorithm().getId()) : (byte[]) hashes.get(info.getDigestAlgorithm().getAlgorithm());
-                signerInfos.add(new SwSignerInformation(info, contentType, null, hash));
+                signerInfos.add(new ELS_SignerInformation(info, contentType, null, hash));
             }
         }
         return signerInfos;

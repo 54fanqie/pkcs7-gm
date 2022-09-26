@@ -12,11 +12,11 @@ import java.io.OutputStream;
  * @date: 2022/9/6 15:53
  * @author: fanqie
  */
-public class SwBcSignerOutputStream extends OutputStream
+public class ELS_BcSignerOutputStream extends OutputStream
 {
     private Signer sig;
 
-    public SwBcSignerOutputStream(Signer sig)
+    public ELS_BcSignerOutputStream(Signer sig)
     {
         this.sig = sig;
     }

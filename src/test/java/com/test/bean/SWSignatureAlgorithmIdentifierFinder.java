@@ -1,13 +1,8 @@
-package com.stamp.platform.bean.bc;
+package com.test.bean;
 
 
-import com.stamp.platform.PrivateUtil;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+import com.stamp.platform.util.PrivateUtil;
 import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
-import org.bouncycastle.util.Strings;
 
 import java.util.HashMap;
 import java.util.HashSet;

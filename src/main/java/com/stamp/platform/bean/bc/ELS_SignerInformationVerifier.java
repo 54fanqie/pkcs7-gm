@@ -1,6 +1,6 @@
 package com.stamp.platform.bean.bc;
 
-import com.stamp.platform.bean.bc.algorithm.SwAlgorithmIdentifierFinderProvider;
+import com.stamp.platform.bean.bc.algorithm.ELS_AlgorithmIdentifierFinderProvider;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.operator.*;
@@ -10,13 +10,13 @@ import org.bouncycastle.operator.*;
  * @date: 2022/9/6 16:15
  * @author: fanqie
  */
-public class SwSignerInformationVerifier {
+public class ELS_SignerInformationVerifier {
     private ContentVerifierProvider verifierProvider;
     private DigestCalculatorProvider digestProvider;
-    private SwAlgorithmIdentifierFinderProvider algorithmIdentifierFinderProvider;
+    private ELS_AlgorithmIdentifierFinderProvider algorithmIdentifierFinderProvider;
 
 
-    public SwSignerInformationVerifier(SwAlgorithmIdentifierFinderProvider algorithmIdentifierFinderProvider , ContentVerifierProvider contentVerifierProvider, DigestCalculatorProvider digestProvider)
+    public ELS_SignerInformationVerifier(ELS_AlgorithmIdentifierFinderProvider algorithmIdentifierFinderProvider , ContentVerifierProvider contentVerifierProvider, DigestCalculatorProvider digestProvider)
     {
         this.algorithmIdentifierFinderProvider = algorithmIdentifierFinderProvider;
         this.verifierProvider = contentVerifierProvider;

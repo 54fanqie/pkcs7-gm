@@ -20,8 +20,8 @@ import static com.stamp.platform.bean.bc.constants.IdentifiersConstants.encrypti
  * @date: 2022/8/31 16:22
  * @author: fanqie
  */
-public class SwAlgorithmIdentifierFinderProvider  {
-    public static SwAlgorithmIdentifierFinderProvider INSTAN = new SwAlgorithmIdentifierFinderProvider();
+public class ELS_AlgorithmIdentifierFinderProvider {
+    public static ELS_AlgorithmIdentifierFinderProvider INSTAN = new ELS_AlgorithmIdentifierFinderProvider();
     /**
      * 签名算法标识符
      * rsaEncryption	                RSA算法标识	        1.2.840.113549.1.1.1

@@ -1,6 +1,6 @@
 package com.stamp.platform.bean.bc;
 
-import com.stamp.platform.bean.bc.algorithm.SwAlgorithmIdentifierFinderProvider;
+import com.stamp.platform.bean.bc.algorithm.ELS_AlgorithmIdentifierFinderProvider;
 import com.stamp.platform.bean.pkcs7.ProcessableContent;
 import com.stamp.platform.bean.pkcs7.SignerInfoExt;
 import com.stamp.platform.util.HexUtil;
@@ -35,8 +35,8 @@ import java.io.OutputStream;
  * @date: 2022/8/31 14:13
  * @author: fanqie
  */
-public class SwSignerInformation {
-    private static final Logger logger = LoggerFactory.getLogger(SwSignerInformation.class);
+public class ELS_SignerInformation {
+    private static final Logger logger = LoggerFactory.getLogger(ELS_SignerInformation.class);
 
     private IssuerAndSerialNumber issuerAndSerialNumber;
     /**
@@ -74,10 +74,7 @@ public class SwSignerInformation {
 
 
 
-
-
-
-    public SwSignerInformation(
+    public ELS_SignerInformation(
             SignerInfoExt info,
             ASN1ObjectIdentifier contentType,
             ProcessableContent content,
@@ -106,7 +103,7 @@ public class SwSignerInformation {
      * @throws org.bouncycastle.cms.CMSVerifierCertificateNotValidException if the provider has an associated certificate and the certificate is not valid at the time given as the SignerInfo's signing time.
      * @throws org.bouncycastle.cms.CMSException                            if the verifier is unable to create a ContentVerifiers or DigestCalculators.
      */
-    public boolean verify(SwSignerInformationVerifier verifier)
+    public boolean verify(ELS_SignerInformationVerifier verifier)
             throws CMSException {
         Time signingTime = getSigningTime();   // has to be validated if present.
 
@@ -124,10 +121,10 @@ public class SwSignerInformation {
     }
 
     private boolean doVerify(
-            SwSignerInformationVerifier verifier)
+            ELS_SignerInformationVerifier verifier)
             throws CMSException {
 
-        String encName = SwAlgorithmIdentifierFinderProvider.INSTAN.getEncryptionAlgName(encryptionAlgorithm.getAlgorithm());
+        String encName = ELS_AlgorithmIdentifierFinderProvider.INSTAN.getEncryptionAlgName(encryptionAlgorithm.getAlgorithm());
         ContentVerifier contentVerifier;
 
         try {

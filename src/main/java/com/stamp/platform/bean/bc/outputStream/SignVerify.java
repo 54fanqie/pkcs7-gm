@@ -11,12 +11,12 @@ import java.io.OutputStream;
  * @author: fanqie
  */
 public class SignVerify implements ContentVerifier {
-    private SwBcSignerOutputStream signerOutputStream;
+    private ELS_BcSignerOutputStream signerOutputStream;
     private AlgorithmIdentifier algorithm;
 
-    public SignVerify(AlgorithmIdentifier algorithm, SwBcSignerOutputStream swBcSignerOutputStream) {
+    public SignVerify(AlgorithmIdentifier algorithm, ELS_BcSignerOutputStream ELSBcSignerOutputStream) {
         this.algorithm = algorithm;
-        this.signerOutputStream = swBcSignerOutputStream;
+        this.signerOutputStream = ELSBcSignerOutputStream;
     }
 
     @Override

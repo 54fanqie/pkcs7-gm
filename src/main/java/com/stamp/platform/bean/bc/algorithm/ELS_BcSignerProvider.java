@@ -14,8 +14,8 @@ import java.util.Locale;
  * @date: 2022/9/8 11:14
  * @author: fanqie
  */
-public class SwBcSignerProvider {
-    public static final SwBcSignerProvider INSTANCE = new SwBcSignerProvider();
+public class ELS_BcSignerProvider {
+    public static final ELS_BcSignerProvider INSTANCE = new ELS_BcSignerProvider();
     public Signer get(String signatureName, Digest digest)
             throws OperatorCreationException {
         //根据算法标识 确定签名实现类

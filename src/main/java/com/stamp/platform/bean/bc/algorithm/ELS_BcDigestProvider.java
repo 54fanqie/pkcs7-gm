@@ -1,6 +1,6 @@
 package com.stamp.platform.bean.bc.algorithm;
 
-import com.stamp.platform.PrivateUtil;
+import com.stamp.platform.util.PrivateUtil;
 import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.crypto.ExtendedDigest;
@@ -18,11 +18,11 @@ import java.util.Map;
  * @date: 2022/9/7 15:21
  * @author: fanqie
  */
-public class SwBcDigestProvider implements BcDigestProvider {
-    public static final    BcDigestProvider INSTANCE = new SwBcDigestProvider();
+public class ELS_BcDigestProvider implements BcDigestProvider {
+    public static final    BcDigestProvider INSTANCE = new ELS_BcDigestProvider();
 
     private static Map table;
-    public SwBcDigestProvider() {
+    public ELS_BcDigestProvider() {
         BcDigestProvider digestProvider = BcDefaultDigestProvider.INSTANCE;
         Map lookup =  (Map) PrivateUtil.getFieldValueCurrent(BcDefaultDigestProvider.class, digestProvider, "lookup");
         table = new HashMap<>();

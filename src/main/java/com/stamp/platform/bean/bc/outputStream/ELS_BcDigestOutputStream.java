@@ -11,10 +11,10 @@ import java.io.OutputStream;
  * @date: 2022/9/8 11:37
  * @author: fanqie
  */
-public class SwBcDigestOutputStream extends OutputStream {
+public class ELS_BcDigestOutputStream extends OutputStream {
     private Digest dig;
 
-    public SwBcDigestOutputStream(Digest dig) {
+    public ELS_BcDigestOutputStream(Digest dig) {
         this.dig = dig;
     }
 

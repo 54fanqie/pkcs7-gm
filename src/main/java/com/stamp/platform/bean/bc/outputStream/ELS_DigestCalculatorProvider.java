@@ -1,6 +1,6 @@
 package com.stamp.platform.bean.bc.outputStream;
 
-import com.stamp.platform.bean.bc.algorithm.SwBcDigestProvider;
+import com.stamp.platform.bean.bc.algorithm.ELS_BcDigestProvider;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.operator.DigestCalculator;
@@ -16,15 +16,15 @@ import java.io.OutputStream;
  * @date: 2022/8/31 16:40
  * @author: fanqie
  */
-public class SWDigestCalculatorProvider implements DigestCalculatorProvider {
+public class ELS_DigestCalculatorProvider implements DigestCalculatorProvider {
 
-    public static DigestCalculatorProvider INSTANCE = new SWDigestCalculatorProvider();
-    private BcDigestProvider digestProvider = SwBcDigestProvider.INSTANCE;
+    public static DigestCalculatorProvider INSTANCE = new ELS_DigestCalculatorProvider();
+    private BcDigestProvider digestProvider = ELS_BcDigestProvider.INSTANCE;
 
     @Override
     public DigestCalculator get(AlgorithmIdentifier algorithm) throws OperatorCreationException {
         Digest dig = digestProvider.get(algorithm);
-        final SwBcDigestOutputStream stream = new SwBcDigestOutputStream(dig);
+        final ELS_BcDigestOutputStream stream = new ELS_BcDigestOutputStream(dig);
 
         return new DigestCalculator()
         {

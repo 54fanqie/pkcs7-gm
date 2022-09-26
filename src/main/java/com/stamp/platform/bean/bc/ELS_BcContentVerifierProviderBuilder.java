@@ -1,12 +1,11 @@
 package com.stamp.platform.bean.bc;
 
-import com.stamp.platform.bean.bc.algorithm.SwAlgorithmIdentifierFinderProvider;
-import com.stamp.platform.bean.bc.algorithm.SwBcDigestProvider;
-import com.stamp.platform.bean.bc.algorithm.SwBcSignerProvider;
+import com.stamp.platform.bean.bc.algorithm.ELS_AlgorithmIdentifierFinderProvider;
+import com.stamp.platform.bean.bc.algorithm.ELS_BcDigestProvider;
+import com.stamp.platform.bean.bc.algorithm.ELS_BcSignerProvider;
 import com.stamp.platform.bean.bc.outputStream.SignVerify;
-import com.stamp.platform.bean.bc.outputStream.SwBcSignerOutputStream;
+import com.stamp.platform.bean.bc.outputStream.ELS_BcSignerOutputStream;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.Signer;
@@ -24,16 +23,16 @@ import java.io.IOException;
  * @date: 2022/8/31 15:56
  * @author: fanqie
  */
-public class SwBcContentVerifierProviderBuilder {
+public class ELS_BcContentVerifierProviderBuilder {
 
     protected BcDigestProvider digestProvider;
-    protected SwAlgorithmIdentifierFinderProvider algorithmIdentifierFinderProvider;
-    protected SwBcSignerProvider bcSignerProvider;
+    protected ELS_AlgorithmIdentifierFinderProvider algorithmIdentifierFinderProvider;
+    protected ELS_BcSignerProvider bcSignerProvider;
 
-    public SwBcContentVerifierProviderBuilder() {
-        this.digestProvider = SwBcDigestProvider.INSTANCE;
-        this.algorithmIdentifierFinderProvider = SwAlgorithmIdentifierFinderProvider.INSTAN;
-        this.bcSignerProvider = SwBcSignerProvider.INSTANCE;
+    public ELS_BcContentVerifierProviderBuilder() {
+        this.digestProvider = ELS_BcDigestProvider.INSTANCE;
+        this.algorithmIdentifierFinderProvider = ELS_AlgorithmIdentifierFinderProvider.INSTAN;
+        this.bcSignerProvider = ELS_BcSignerProvider.INSTANCE;
     }
 
     public ContentVerifierProvider build(final X509CertificateHolder holder) {
@@ -53,7 +52,7 @@ public class SwBcContentVerifierProviderBuilder {
                 try {
                     //签名算法标识
                     AsymmetricKeyParameter var2 = PublicKeyFactory.createKey(holder.getSubjectPublicKeyInfo());
-                    SwBcSignerOutputStream var3 = createSignatureStream(algorithm, var2);
+                    ELS_BcSignerOutputStream var3 = createSignatureStream(algorithm, var2);
                     return new SignVerify(algorithm, var3);
                 } catch (IOException var4) {
                     throw new OperatorCreationException("exception on setup: " + var4, var4);
@@ -78,11 +77,11 @@ public class SwBcContentVerifierProviderBuilder {
     /**
      * 创建签名类 steam
      */
-    private SwBcSignerOutputStream createSignatureStream(AlgorithmIdentifier algorithm, AsymmetricKeyParameter keyParameter)
+    private ELS_BcSignerOutputStream createSignatureStream(AlgorithmIdentifier algorithm, AsymmetricKeyParameter keyParameter)
             throws OperatorCreationException {
         Signer sig = createSigner(algorithm);
         sig.init(false, keyParameter);
-        return new SwBcSignerOutputStream(sig);
+        return new ELS_BcSignerOutputStream(sig);
     }
 
 
