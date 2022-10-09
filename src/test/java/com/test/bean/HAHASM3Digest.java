@@ -1,4 +1,4 @@
-package com.stamp.platform.bean;
+package com.test.bean;
 
 import com.stamp.platform.util.HexUtil;
 import org.bouncycastle.crypto.digests.GeneralDigest;

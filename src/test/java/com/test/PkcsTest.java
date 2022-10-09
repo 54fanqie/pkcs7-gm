@@ -62,7 +62,7 @@ public class PkcsTest {
         //方式二： 放原文摘要，没有认证属性
 //        byte[] p7 = Pkcs7Factory4.genPKCS7(hash, digestAlgorithm, certificate ,null, indata -> helper.sign(indata, privateKey));
         //验证
-        Pkcs7Factory.digitalSignVerify(null, p7);
+        Pkcs7Factory.digitalSignVerify(plant, p7);
         FileUtils.writeFile(p7, "/Users/fanqie/Desktop/share/rsa_p7.dat");
         System.out.println(p7.length);
 

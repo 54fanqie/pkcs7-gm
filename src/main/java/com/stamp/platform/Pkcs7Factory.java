@@ -173,7 +173,7 @@ public class Pkcs7Factory {
         //messageDigest 原文摘要
         Attribute attribute2 = new Attribute(GMPKCSObjectIdentifiers.authenticate_messageDigest, new DERSet(new DEROctetString(hash)));
         //signingTime 签名时间
-        Time time = new Time(DateUtil.getMonthFirstDay(), Locale.CHINA);
+        Time time = new Time(new Date(), Locale.CHINA);
         Attribute attribute3 = new Attribute(GMPKCSObjectIdentifiers.authenticate_signingTime, new DERSet(time));
         ASN1EncodableVector var3 = new ASN1EncodableVector(3);
         var3.add(attribute1);
